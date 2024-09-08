@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-item {
+            background-color: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #17a2b8;
+        }
+        .feature-item strong {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body text-center">
+                <h2 class="card-title">Heart Condition Prediction Result</h2>
+                <div class="alert alert-info mt-4">
+                    <h4>Prediction: <strong>{{ prediction }}</strong></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h4 class="text-center">Top Features Contributing to the Prediction</h4>
+            <ul class="feature-list mt-4">
+                {% for feature in top_features %}
+                    <li class="feature-item">
+                        <strong>{{ feature['Feature'] }}:</strong> {{ feature['SHAP Value'] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">Make Another Prediction</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Condition Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <body>
+    <div class="container mt-5">
+      
+        <h2 class="text-center">Heart Condition Prediction</h2>
+        <form action="/predict" method="POST">
+            <!-- Sex -->
+            <div class="form-group">
+                <label for="Sex">Sex (0 = Female, 1 = Male):</label>
+                <input type="number" class="form-control" id="Sex" name="Sex" min="0" max="1" required>
+            </div>
+
+            <!-- Had Angina -->
+            <div class="form-group">
+                <label for="HadAngina">Had Angina (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HadAngina" name="HadAngina" min="0" max="1" required>
+            </div>
+
+            <!-- Had Stroke -->
+            <div class="form-group">
+                <label for="HadStroke">Had Stroke (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HadStroke" name="HadStroke" min="0" max="1" required>
+            </div>
+
+            <!-- Had Asthma -->
+            <div class="form-group">
+                <label for="HadAsthma">Had Asthma (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HadAsthma" name="HadAsthma" min="0" max="1" required>
+            </div>
+
+            <!-- Had Skin Cancer -->
+            <div class="form-group">
+                <label for="HadSkinCancer">Had Skin Cancer (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HadSkinCancer" name="HadSkinCancer" min="0" max="1" required>
+            </div>
+
+            <!-- Had COPD -->
+            <div class="form-group">
+                <label for="HadCOPD">Had COPD (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HadCOPD" name="HadCOPD" min="0" max="1" required>
+            </div>
+
+            <!-- Had Depressive Disorder -->
+            <div class="form-group">
+                <label for="HadDepressiveDisorder">Had Depressive Disorder (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HadDepressiveDisorder" name="HadDepressiveDisorder" min="0" max="1" required>
+            </div>
+
+            <!-- Had Arthritis -->
+            <div class="form-group">
+                <label for="HadArthritis">Had Arthritis (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HadArthritis" name="HadArthritis" min="0" max="1" required>
+            </div>
+
+            <!-- Difficulty Walking -->
+            <div class="form-group">
+                <label for="DifficultyWalking">Difficulty Walking (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="DifficultyWalking" name="DifficultyWalking" min="0" max="1" required>
+            </div>
+
+            <!-- Chest Scan -->
+            <div class="form-group">
+                <label for="ChestScan">Chest Scan (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="ChestScan" name="ChestScan" min="0" max="1" required>
+            </div>
+
+            <!-- Alcohol Drinkers -->
+            <div class="form-group">
+                <label for="AlcoholDrinkers">Alcohol Drinkers (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="AlcoholDrinkers" name="AlcoholDrinkers" min="0" max="1" required>
+            </div>
+
+            <!-- HIV Testing -->
+            <div class="form-group">
+                <label for="HIVTesting">HIV Testing (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="HIVTesting" name="HIVTesting" min="0" max="1" required>
+            </div>
+
+              <!-- Flu Vax Last 12 -->
+              <div class="form-group">
+                <label for="FluVaxLast12">Flu Vax Last 12 Months (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="FluVaxLast12" name="FluVaxLast12" min="0" max="1" required>
+            </div>
+
+            <!-- Pneumo Vax Ever -->
+            <div class="form-group">
+                <label for="PneumoVaxEver">Pneumo Vax Ever (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="PneumoVaxEver" name="PneumoVaxEver" min="0" max="1" required>
+            </div>
+
+            <!-- Covid Positive -->
+            <div class="form-group">
+                <label for="CovidPos">Covid Positive (0 = No, 1 = Yes):</label>
+                <input type="number" class="form-control" id="CovidPos" name="CovidPos" min="0" max="1" required>
+            </div>
+
+            <!-- General Health -->
+            <div class="form-group">
+                <label for="GeneralHealth">General Health:</label>
+                <select class="form-control" id="GeneralHealth" name="GeneralHealth" required>
+                    <option value="0">Poor</option>
+                    <option value="1">Fair</option>
+                    <option value="2">Good</option>
+                    <option value="3">Very Good</option>
+                    <option value="4">Excellent</option>
+                </select>
+            </div>
+
+            <!-- Removed Teeth -->
+            <div class="form-group">
+                <label for="RemovedTeeth">Removed Teeth:</label>
+                <select class="form-control" id="RemovedTeeth" name="RemovedTeeth" required>
+                    <option value="0">None of them</option>
+                    <option value="1">1 to 5</option>
+                    <option value="2">6 or more, but not all</option>
+                    <option value="3">All</option>
+                </select>
+            </div>
+
+            <!-- Age Category -->
+            <div class="form-group">
+                <label for="AgeCategory">Age Category:</label>
+                <select class="form-control" id="AgeCategory" name="AgeCategory" required>
+                    <option value="0">Young Adult</option>
+                    <option value="1">Middle-Aged Adult</option>
+                    <option value="2">Senior Adult</option>
+                </select>
+            </div>
+
+             <!-- Sleep Hours -->
+              <div class="form-group">
+                <label for="SleepHours">Sleep Hours:</label>
+                <input type="number" class="form-control" id="SleepHours" name="SleepHours" min="0" step="1" placeholder="Enter the number of hours" required>
+            </div>
+
+            <!-- BMI -->
+            <div class="form-group">
+                <label for="BMI">Body Mass Index (BMI):</label>
+                <input type="number" class="form-control" id="BMI" name="BMI" step="0.1" placeholder="Enter BMI value" required>
+            </div>
+
+            <!-- Had Diabetes No -->
+<div class="form-group">
+    <label for="HadDiabetes_No">Had Diabetes (0 = No, 1 = Yes):</label>
+    <input type="number" class="form-control" id="HadDiabetes_No" name="HadDiabetes_No" min="0" max="1" required>
+</div>
+
+<!-- Smoker Status: Former smoker -->
+<div class="form-group">
+    <label for='SmokerStatus_Former_smoker'>Smoker Status - Former Smoker (0 = No, 1 = Yes):</label>
+    <input type="number" class="form-control" id='SmokerStatus_Former_smoker' name='SmokerStatus_Former_smoker' min="0" max="1" required>
+</div>
+
+<!-- TetanusLast10Tdap_No -->
+<div class="form-group">
+    <label for='TetanusLast10Tdap_No_did_not_receive_any_tetanus_shot_in_the_past_10_years'>Tetanus Shot (No, did not receive any tetanus shot in the past 10 years) (0 = No, 1 = Yes):</label>
+    <input type="number" class="form-control" id='TetanusLast10Tdap_No_did_not_receive_any_tetanus_shot_in_the_past_10_years' name='TetanusLast10Tdap_No_did_not_receive_any_tetanus_shot_in_the_past_10_years' min="0" max="1" required>
+</div>
+
+<!-- TetanusLast10Tdap_Yes -->
+<div class="form-group">
+    <label for='TetanusLast10Tdap_Yes_received_Tdap'>Tetanus Shot (Yes, received Tdap) (0 = No, 1 = Yes):</label>
+    <input type="number" class="form-control" id='TetanusLast10Tdap_Yes_received_Tdap' name='TetanusLast10Tdap_Yes_received_Tdap' min="0" max="1" required>
+</div>
+
+  <!-- Submit Button -->
+  <div class="form-group text-center">
+    <button type="submit" class="btn btn-primary">Predict</button>
+</div>
+</form>
+</div>
+</body>
+</html>
